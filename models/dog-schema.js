@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const dogSchema = new mongoose.Schema({
+const doggoSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -25,15 +25,15 @@ const dogSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    suitable_with_cats: {
+    live_with_cats: {
         type: Boolean, 
         required: true
     },
-    suitable_with_dogs: {
+    live_with_dogs: {
         type: Boolean,
         required: true
     },
-    suitable_with_children: {
+    live_with_children: {
         type: Boolean,
         required: true
     },
@@ -48,4 +48,4 @@ const dogSchema = new mongoose.Schema({
 
 })
 
-export default mongoose.model("Doggie", dogSchema)
+export default mongoose.model("Doggie", doggoSchema)
