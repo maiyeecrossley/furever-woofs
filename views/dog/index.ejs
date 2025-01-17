@@ -1,2 +1,17 @@
-<%- include('./partials/html-head') %>
-<%- include('./partials/nav') %>
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+    <h1>View all the dogs that are looking for their furever sofas!</h1>
+
+        <ul>
+            <% allDogs.forEach((dog)=> { %>
+                <li class="dog-name">
+                    <a href="/dogs/<%= dog._id %>">
+                        <%= dog.name %>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+
+</body>
+</html>
