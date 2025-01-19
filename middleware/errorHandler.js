@@ -10,7 +10,7 @@ export default
     } else if (
         err.name === "ValidationError") {
         const customErrMessage = {}
-        for (const key in e.errors) {
+        for (const key in err.errors) {
             customErrMessage[key] = err.errors[key].message
         }
         console.log(customErrMessage)

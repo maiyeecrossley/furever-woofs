@@ -3,7 +3,11 @@ import bcrypt from "bcrypt"
 import validator from "validator"
 
 const userSchema = new mongoose.Schema({
-    name: {
+    first_name: {
+        type: String,
+        required: true
+    },
+    last_name: {
         type: String,
         required: true
     },
@@ -31,6 +35,16 @@ const userSchema = new mongoose.Schema({
             }
         ]
     },
+    dob: {
+        type: Date,
+        required: true,
+        // validate: [
+        //     {
+        //         message: "You must be at least 18 years old to register for an account",
+        //         validator: (dob) => 
+        //     }
+        // ]
+    },
     user_type: {
         type: String,
         enum: ['charity', 'adopter'],
@@ -54,12 +68,8 @@ const userSchema = new mongoose.Schema({
     },
     telephone: {
         type: Number,
-        required: function () {
-            return this.user_type === "charity"
-        }
-    },
-    is_charity: true
-
+        required: true
+    }
 })
 
 userSchema.pre("save", function (next) {
