@@ -72,4 +72,23 @@ router.get("/login", async (req, res, next) => {
     }
 })
 
+
+router.post("/login", async (req, res, next) => {
+    try {
+        
+        const user = await User.findOne({ email: req.body.email })
+        if (!user) {
+            return res.send({ message: "Log in failed. Please try again" })
+        }
+        if (!user.isPasswordValid(req.body.password)) {
+            return res.status(401).send({ message: "Log in failed. Please try again" })
+        }
+        req.session.user = user
+        res.redirect("/dogs")
+        
+    } catch (err) {
+        next (err) 
+    }
+})
+
 export default router
