@@ -10,7 +10,6 @@ router.get("/register", async (req, res, next) => {
         res.render("user/register.ejs")
 
     } catch (err) {
-        console.log(">>> err", err);
         next (err)
     }
 })
@@ -60,6 +59,17 @@ router.post("/register-form", async (req, res, next) => {
         next (err)
     }
 
+})
+
+
+router.get("/login", async (req, res, next) => {
+    try {
+        
+        res.render("user/login.ejs")
+
+    } catch (err) {
+        next (err)
+    }
 })
 
 export default router

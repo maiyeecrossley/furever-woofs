@@ -45,6 +45,15 @@ const userSchema = new mongoose.Schema({
         //     }
         // ]
     },
+    location: {
+        type: String,
+        required: true
+    },
+    telephone: {
+        type: Number,
+        required: true,
+        
+    },
     user_type: {
         type: String,
         enum: ['charity', 'adopter'],
@@ -61,14 +70,6 @@ const userSchema = new mongoose.Schema({
         required: function () {
             return this.user_type === "charity"
         }
-    },
-    location: {
-        type: String,
-        required: true
-    },
-    telephone: {
-        type: Number,
-        required: true
     }
 })
 
