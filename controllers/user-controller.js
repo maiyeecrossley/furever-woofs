@@ -84,7 +84,8 @@ router.post("/login", async (req, res, next) => {
             return res.status(401).send({ message: "Log in failed. Please try again" })
         }
         req.session.user = user
-        res.redirect("/dogs")
+        res.status(200).send({ message: "Login successful" })
+        // res.redirect("/dogs")
         
     } catch (err) {
         next (err) 

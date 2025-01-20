@@ -44,4 +44,27 @@ router.get("/dogs/:id", async (req, res, next) => {
     }
 })
 
+
+router.delete("/dogs/:id", async (req, res, next) => {
+    try {
+
+        const dogId = req.params.id
+        const user = req.session.user
+        if (!user || user.user_type !== "charity") {
+            return res.status(401).send ({ message: "Only valid charity users can perform this" })
+        }
+        
+        const dog = await Doggie.findById(dogId)
+        if (dog.charity_name !== user.charity_name) {
+            res.status(403).send({ message: "This dog does not belong to your charity" })
+        }
+
+        await Doggie.findByIdAndDelete(dogId)
+        res.status(200).send({ message: "Dog has found their furever sofa ❤️" })
+
+    } catch (err) {
+        next(err)
+    }
+})
+
 export default router

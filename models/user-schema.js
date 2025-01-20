@@ -62,13 +62,13 @@ const userSchema = new mongoose.Schema({
     charity_name: {
         type: String,
         required: function () {
-            return this.user_type === "charity"
+            return this.user_type === "charity", true
         }
     },
     charity_number: {
         type: Number,
         required: function () {
-            return this.user_type === "charity"
+            return this.user_type === "charity", true
         }
     }
 })
