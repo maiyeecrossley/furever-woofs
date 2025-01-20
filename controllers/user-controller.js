@@ -78,7 +78,7 @@ router.post("/login", async (req, res, next) => {
         
         const user = await User.findOne({ email: req.body.email })
         if (!user) {
-            return res.send({ message: "Log in failed. Please try again" })
+            return res.status(401).send({ message: "Log in failed. Please try again" })
         }
         if (!user.isPasswordValid(req.body.password)) {
             return res.status(401).send({ message: "Log in failed. Please try again" })

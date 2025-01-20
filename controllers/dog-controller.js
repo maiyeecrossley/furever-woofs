@@ -67,4 +67,57 @@ router.delete("/dogs/:id", async (req, res, next) => {
     }
 })
 
+
+router.get("/new", async (req,res,next) => {
+    try {
+        const dogBreeds = {
+            akita: "Akita",
+            border_terrier: "Border Terrier",
+            boxer: "Boxer",
+            bulldog: "Bulldog",
+            cavalier_king_charles: "Cavalier King Charles",
+            cocker_spaniel: "Cocker Spaniel",
+            dachshund: "Dachshund",
+            english_springer_spaniel: "English Springer Spaniel",
+            french_bulldog: "French Bulldog",
+            german_shepherd_dog: "German Shepherd Dog",
+            golden_retriever: "Golden Retriever",
+            labrador: "Labrador",
+            miniature_schnauzer: "Miniature Schnauzer",
+            pomeranian: "Pomeranian",
+            poodle: "Poodle",
+            pug: "Pug",
+            rottweiler: "Rottweiler",
+            staffordshire_bull_terrier: "Staffordshire Bull Terrier",
+            whippet: "Whippet",
+            yorkshire_terrier: "Yorkshire Terrier",
+            shih_tzu: "Shih Tzu"
+          }
+          
+        res.render("charity/new.ejs", {
+            dogBreeds: dogBreeds
+        })
+    } catch (err) {
+        next(err)
+    }
+})
+
+
+router.post("/dogs", async (req, res, next) => {
+    try {
+
+        const user = req.session.user
+        if (!user || user.user_type !== "charity") {
+            return res.status(401).send({ message: "Only valid charity users can perform this" })
+        }
+        
+        req.body.user = req.session.user
+        await Doggie.create(req.body)
+
+    } catch (err) {
+        next(err)
+    }
+})
+
+
 export default router

@@ -1,0 +1,21 @@
+<%- include("../partials/html-head") %>
+<%- include("../partials/nav") %>
+
+    <h1>Add a new dog</h1>
+
+    <form action="/new" method="POST"
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+        <fieldset>
+            <legend>Breed:</legend>
+            <% for (const breed in dogBreeds) { %>
+                <input type="checkbox" name="breed_<%= breed %>" id="breed_<%= breed %>" value="<%= dogBreeds[breed] %>">
+                <label for="breed_<%= breed %>"><%= dogBreeds[breed] %></label><br>
+              <% } %>
+        </fieldset>
+
+    <button type="submit">Submit</button
+    </form>
+
+</body>
+</html>
