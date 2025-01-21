@@ -5,16 +5,51 @@
 
     <form action="/new" method="POST"
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name"><br>
+        <label for="age">Date of Birth:</label>
+        <input type="date" name="age" id="age"
         <fieldset>
             <legend>Breed:</legend>
             <% for (const breed in dogBreeds) { %>
-                <input type="checkbox" name="breed_<%= breed %>" id="breed_<%= breed %>" value="<%= dogBreeds[breed] %>">
-                <label for="breed_<%= breed %>"><%= dogBreeds[breed] %></label><br>
-              <% } %>
+            <input type="checkbox" name="breed_<%= breed %>" id="breed_<%= breed %>" value="<%= dogBreeds[breed] %>">
+            <label for="breed_<%= breed %>"><%= dogBreeds[breed] %></label><br>
+            <% } %>
         </fieldset>
+        <fieldset>
+            <legend>Gender:</legend>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>
+        </fieldset>
+        <fieldset>
+            <legend>Can live with:</legend>
+            <p>Cats: 
+            <input type="radio" name="live_with_cats" id="cats_yes">
+            <label for="cats_yes">Yes</label>
+            <input type="radio" name="live_with_cats" id="cats_no">
+            <label for="cats_no">No</label></<br>
+            <p>Dogs</p>
+            <input type="radio" name="live_with_dogs" id="dogs_yes">
+            <label for="dogs_yes">Yes</label>
+            <input type="radio" name="live_with_dogs" id="dogs_no">
+            <label for="dogs_no">No</label><br>
+            <p>Children</p>
+            <input type="radio" name="live_with_children" id="children_yes">
+            <label for="children_yes">Yes</label>
+            <input type="radio" name="live_with_children" id="children_no">
+            <label for="children_no">No</label>
+        </fieldset>
+        <label for="location">Location:</label>
+        <input type="text" name="location" id="location"><br>
+        <label for="charity_name">Charity Name:</label>
+        <input type="text" name="charity_name" id="charity_name"><br>
+        <label for="charity_number">Charity Number:</label>
+        <input type="text" name="charity_number" id="charity_number"><br>
+        <label for="description">Description:</label><br>
+        <textarea name="description" rows="20" cols="60" id="description"></textarea>
 
-    <button type="submit">Submit</button
+    <button type="submit">Submit</button>
     </form>
 
 </body>

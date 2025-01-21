@@ -41,6 +41,10 @@ const doggoSchema = new mongoose.Schema({
         type: String,
         required: true
     }, 
+    charity_number: {
+        type: Number,
+        required: true
+    },
     reference: {
         type: String,
         required: true
