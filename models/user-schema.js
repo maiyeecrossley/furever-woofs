@@ -70,7 +70,10 @@ const userSchema = new mongoose.Schema({
         required: function () {
             return this.user_type === "charity", true
         }
-    }
+    },
+    user: { 
+        type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true 
+    },
 })
 
 userSchema.pre("save", function (next) {

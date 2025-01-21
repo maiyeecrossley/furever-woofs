@@ -1,4 +1,5 @@
 import mongoose from "mongoose"
+import { generateReference } from "../middleware/reference-generator.js"
 
 const doggoSchema = new mongoose.Schema({
     name: {
@@ -7,7 +8,11 @@ const doggoSchema = new mongoose.Schema({
     },
     breed: [{
         type: String,
-        required: true
+        required: true,
+        validate: {
+            message: "You have selected more than 3 breeds. Please use 'Other cross-breed' option.",
+            validator: (breeds) => breeds.length <= 3
+        }
     }],
     age: {
         type: String,
@@ -15,7 +20,8 @@ const doggoSchema = new mongoose.Schema({
     },
     gender: {
         type: String,
-        required: true
+        enum: ["Male", "Female"],
+        required: true,
     },
     location: {
         type: String,
@@ -47,9 +53,11 @@ const doggoSchema = new mongoose.Schema({
     },
     reference: {
         type: String,
-        required: true
+        unique: true
     }
 
 })
+
+doggoSchema.pre("save", generateReference)
 
 export default mongoose.model("Doggie", doggoSchema)

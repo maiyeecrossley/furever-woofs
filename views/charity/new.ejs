@@ -7,38 +7,38 @@
         <label for="name">Name:</label>
         <input type="text" name="name" id="name"><br>
         <label for="age">Date of Birth:</label>
-        <input type="date" name="age" id="age"
+        <input type="date" name="age" id="age">
         <fieldset>
             <legend>Breed:</legend>
             <% for (const breed in dogBreeds) { %>
-            <input type="checkbox" name="breed_<%= breed %>" id="breed_<%= breed %>" value="<%= dogBreeds[breed] %>">
+            <input type="checkbox" name="breed" id="breed_<%= breed %>" value="<%= dogBreeds[breed] %>">
             <label for="breed_<%= breed %>"><%= dogBreeds[breed] %></label><br>
             <% } %>
         </fieldset>
         <fieldset>
             <legend>Gender:</legend>
-            <input type="radio" name="gender" id="male" value="male">
+            <input type="radio" name="gender" id="male" value="Male">
             <label for="male">Male</label><br>
-            <input type="radio" name="gender" id="female" value="female">
+            <input type="radio" name="gender" id="female" value="Female">
             <label for="female">Female</label>
         </fieldset>
         <fieldset>
             <legend>Can live with:</legend>
             <p>Cats: 
-            <input type="radio" name="live_with_cats" id="cats_yes">
+            <input type="radio" name="live_with_cats" id="cats_yes" value="true">
             <label for="cats_yes">Yes</label>
-            <input type="radio" name="live_with_cats" id="cats_no">
-            <label for="cats_no">No</label></<br>
-            <p>Dogs</p>
-            <input type="radio" name="live_with_dogs" id="dogs_yes">
+            <input type="radio" name="live_with_cats" id="cats_no" value="false">
+            <label for="cats_no">No</label></p>
+            <p>Dogs:
+            <input type="radio" name="live_with_dogs" id="dogs_yes" value="true">
             <label for="dogs_yes">Yes</label>
-            <input type="radio" name="live_with_dogs" id="dogs_no">
-            <label for="dogs_no">No</label><br>
-            <p>Children</p>
-            <input type="radio" name="live_with_children" id="children_yes">
+            <input type="radio" name="live_with_dogs" id="dogs_no" value="false">
+            <label for="dogs_no">No</label></p>
+            <p>Children:
+            <input type="radio" name="live_with_children" id="children_yes" value="true">
             <label for="children_yes">Yes</label>
-            <input type="radio" name="live_with_children" id="children_no">
-            <label for="children_no">No</label>
+            <input type="radio" name="live_with_children" id="children_no" value="false">
+            <label for="children_no">No</label></p>
         </fieldset>
         <label for="location">Location:</label>
         <input type="text" name="location" id="location"><br>

@@ -72,7 +72,8 @@ router.get("/new", async (req,res,next) => {
     try {
         const dogBreeds = {
             akita: "Akita",
-            border_terrier: "Border Terrier",
+            beagle: "Beagle",
+            border_collie: "Border Collie",
             boxer: "Boxer",
             bulldog: "Bulldog",
             cavalier_king_charles: "Cavalier King Charles",
@@ -82,7 +83,7 @@ router.get("/new", async (req,res,next) => {
             french_bulldog: "French Bulldog",
             german_shepherd_dog: "German Shepherd Dog",
             golden_retriever: "Golden Retriever",
-            labrador: "Labrador",
+            labrador_retriever: "Labrador Retriever",
             miniature_schnauzer: "Miniature Schnauzer",
             pomeranian: "Pomeranian",
             poodle: "Poodle",
@@ -103,16 +104,20 @@ router.get("/new", async (req,res,next) => {
 })
 
 
-router.post("/dogs", async (req, res, next) => {
+router.post("/new", async (req, res, next) => {
     try {
 
         const user = req.session.user
         if (!user || user.user_type !== "charity") {
             return res.status(401).send({ message: "Only valid charity users can perform this" })
         }
+
+        if (!req.body.breed) req.body.breed = ""
+        req.body.breed = req.body.breed.join(", ")
         
         req.body.user = req.session.user
         await Doggie.create(req.body)
+        res.redirect("/dogs")
 
     } catch (err) {
         next(err)
