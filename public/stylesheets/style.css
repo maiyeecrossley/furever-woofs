@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    background: #f3f1ff;
+    font-family: "Thasadith", serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-family: "Sour Gummy", serif;
+
+}
+
+nav {
+    font-family: "Thasadith", serif;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
