@@ -55,7 +55,7 @@ router.delete("/dogs/:id", async (req, res, next) => {
         }
         
         const dog = await Doggie.findById(dogId)
-        if (dog.charity_name !== user.charity_name) {
+        if (dog.charity_number !== user.charity_number) {
             res.status(403).send({ message: "This dog does not belong to your charity" })
         }
 
