@@ -12,7 +12,10 @@ const doggoSchema = new mongoose.Schema({
         validate: {
             message: "You have selected more than 3 breeds. Please use 'Other cross-breed' option.",
             validator: (breeds) => breeds.length <= 3
-        }
+        },
+        set: breeds => Array.isArray(breeds)
+            ? breeds.map(breed => breed.toLowerCase())
+            : [breeds.toLowerCase()]
     },
     age: {
         type: String,

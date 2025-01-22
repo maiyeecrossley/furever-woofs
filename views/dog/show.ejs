@@ -17,6 +17,12 @@
 
     </main>
 
+    <p><a href="/dogs/update/<%= dog._id %>">Update <%= dog.name %>'s Details</a></p>
+
+    <form action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+        <button type="submit"><%= dog.name %> has found their furever sofa 🛋️ ❤️</button>
+      </form>
+
 
 </body>
 </html>

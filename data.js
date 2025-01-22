@@ -11,7 +11,7 @@ export default
     "live_with_dogs": true,
     "live_with_children": true,
     "charity_name": "Second Chance Akita Rescue",
-    "charity_number": "003442"
+    "charity_number": "12345"
   },
   {
     "name": "Suki",
@@ -24,7 +24,7 @@ export default
     "live_with_dogs": true,
     "live_with_children": false,
     "charity_name": "Second Chance Akita Rescue",
-    "charity_number": "003442"
+    "charity_number": "12345"
   },
   {
     "name": "Buddy",
@@ -37,7 +37,7 @@ export default
     "live_with_dogs": true,
     "live_with_children": true,
     "charity_name": "Happy Tails Shelter",
-    "charity_number": "00042342"
+    "charity_number": "67890"
   },
   {
     "name": "Daisy",
@@ -50,7 +50,7 @@ export default
     "live_with_dogs": true,
     "live_with_children": true,
     "charity_name": "Paws and Claws Rescue",
-    "charity_number": "00012"
+    "charity_number": "11223"
   },
   {
     "name": "Max",
@@ -63,7 +63,7 @@ export default
     "live_with_dogs": true,
     "live_with_children": false,
     "charity_name": "Safe Haven Dogs",
-    "charity_number": "00078"
+    "charity_number": "33445"
   },
   {
     "name": "Luna",
@@ -76,7 +76,7 @@ export default
     "live_with_dogs": true,
     "live_with_children": true,
     "charity_name": "Highland Rescue",
-    "charity_number": "000589"
+    "charity_number": "55678"
   },
   {
     "name": "Charlie",
@@ -89,6 +89,6 @@ export default
     "live_with_dogs": true,
     "live_with_children": true,
     "charity_name": "South Wales Rescue",
-    "charity_number": "0006543"
+    "charity_number": "77889"
   }
 ]
