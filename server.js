@@ -8,6 +8,7 @@ import dogController from "./controllers/dog-controller.js"
 import userController from "./controllers/user-controller.js"
 import path from "path"
 import { fileURLToPath } from "url"
+import authenticate from "./middleware/auth-user.js"
 
 dotenv.config()
 
@@ -30,6 +31,7 @@ app.use(session({
     }
 }))
 
+app.use(authenticate)
 
 app.use(express.urlencoded({extended: false}))
 

@@ -1,6 +1,5 @@
 import express from "express"
 import User from "../models/user-schema.js"
-import bcrypt from "bcrypt"
 
 const router = express.Router()
 
@@ -84,12 +83,24 @@ router.post("/login", async (req, res, next) => {
             return res.status(401).send({ message: "Log in failed. Please try again" })
         }
         req.session.user = user
-        res.status(200).send({ message: "Login successful" })
-        // res.redirect("/dogs")
+        // res.status(200).send({ message: "Login successful" })
+        res.redirect("/dogs")
         
     } catch (err) {
-        next (err) 
+        next(err) 
     }
+})
+
+
+router.get("/logout", async (req, res, next) => {
+    try {
+
+        req.session.destroy()
+        res.redirect("/")
+
+    } catch(err) {
+        next(err)
+    }    
 })
 
 export default router

@@ -62,18 +62,15 @@ const userSchema = new mongoose.Schema({
     charity_name: {
         type: String,
         required: function () {
-            return this.user_type === "charity", true
+            return this.user_type === "charity"
         }
     },
     charity_number: {
         type: Number,
         required: function () {
-            return this.user_type === "charity", true
+            return this.user_type === "charity"
         }
-    },
-    user: { 
-        type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true 
-    },
+    }
 })
 
 userSchema.pre("save", function (next) {

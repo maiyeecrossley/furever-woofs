@@ -6,14 +6,14 @@ const doggoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    breed: [{
-        type: String,
+    breed: {
+        type: [String],
         required: true,
         validate: {
             message: "You have selected more than 3 breeds. Please use 'Other cross-breed' option.",
             validator: (breeds) => breeds.length <= 3
         }
-    }],
+    },
     age: {
         type: String,
         required: true
@@ -54,6 +54,9 @@ const doggoSchema = new mongoose.Schema({
     reference: {
         type: String,
         unique: true
+    },
+    user: { 
+        type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true 
     }
 
 })

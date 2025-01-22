@@ -92,7 +92,8 @@ router.get("/new", async (req,res,next) => {
             staffordshire_bull_terrier: "Staffordshire Bull Terrier",
             whippet: "Whippet",
             yorkshire_terrier: "Yorkshire Terrier",
-            shih_tzu: "Shih Tzu"
+            shih_tzu: "Shih Tzu",
+            other_crossbreed: "Other Crossbreed"
           }
           
         res.render("charity/new.ejs", {
@@ -111,9 +112,6 @@ router.post("/new", async (req, res, next) => {
         if (!user || user.user_type !== "charity") {
             return res.status(401).send({ message: "Only valid charity users can perform this" })
         }
-
-        if (!req.body.breed) req.body.breed = ""
-        req.body.breed = req.body.breed.join(", ")
         
         req.body.user = req.session.user
         await Doggie.create(req.body)
