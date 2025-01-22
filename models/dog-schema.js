@@ -17,8 +17,8 @@ const doggoSchema = new mongoose.Schema({
             ? breeds.map(breed => breed.toLowerCase())
             : [breeds.toLowerCase()]
     },
-    age: {
-        type: String,
+    dob: {
+        type: Date,
         required: true
     },
     gender: {

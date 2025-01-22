@@ -3,7 +3,7 @@ export default
   {
     "name": "Koda",
     "breed": "Akita",
-    "age": 4,
+    "dob": "2018-11-20",
     "gender": "Male",
     "location": "Manchester",
     "description": "A gentle giant who loves long walks and quiet evenings at home.",
@@ -16,7 +16,7 @@ export default
   {
     "name": "Suki",
     "breed": "Akita",
-    "age": 3,
+    "dob": "2019-08-14",
     "gender": "Female",
     "location": "Bristol",
     "description": "An energetic and loyal companion, ideal for an active family.",
@@ -29,7 +29,7 @@ export default
   {
     "name": "Buddy",
     "breed": "Labrador Retriever",
-    "age": 2,
+    "dob": "2021-03-07",
     "gender": "Male",
     "location": "London",
     "description": "A friendly and playful dog who loves everyone he meets.",
@@ -42,7 +42,7 @@ export default
   {
     "name": "Daisy",
     "breed": "Cocker Spaniel",
-    "age": 5,
+    "dob": "2017-09-25",
     "gender": "Female",
     "location": "Liverpool",
     "description": "A sweet and gentle girl who enjoys cuddles and quiet walks.",
@@ -55,7 +55,7 @@ export default
   {
     "name": "Max",
     "breed": "German Shepherd",
-    "age": 6,
+    "dob": "2015-05-18",
     "gender": "Male",
     "location": "Birmingham",
     "description": "A smart and loyal protector looking for an experienced owner.",
@@ -68,7 +68,7 @@ export default
   {
     "name": "Luna",
     "breed": "Border Collie",
-    "age": 3,
+    "dob": "2020-01-12",
     "gender": "Female",
     "location": "Edinburgh",
     "description": "An intelligent and energetic dog who loves learning new tricks.",
@@ -81,7 +81,7 @@ export default
   {
     "name": "Charlie",
     "breed": "Beagle",
-    "age": 4,
+    "dob": "2019-07-30",
     "gender": "Male",
     "location": "Cardiff",
     "description": "A curious and loving dog who enjoys exploring and sniffing new scents.",

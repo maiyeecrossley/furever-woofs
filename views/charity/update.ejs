@@ -7,8 +7,8 @@
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" value="<%= dog.name %>"><br>
     
-        <label for="age">Age:</label>
-        <input type="date" name="age" id="age" value="<%= dog.age %>">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" name="dob" id="dob" value="<%= dog.dob.toISOString().split('T')[0] %>">
     
         <fieldset>
             <legend>Breed:</legend>

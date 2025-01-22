@@ -1,6 +1,7 @@
 import express from "express"
 import Doggie from "../models/dog-schema.js"
 import dogBreeds from "../dog-breeds.js"
+import { calculateAge } from "../middleware/age-calculator.js"
 
 const router = express.Router()
 
@@ -10,7 +11,7 @@ router.get("/", async (req, res, next) => {
         res.render("home.ejs")
 
     } catch (err) {
-        next (err)
+        next(err)
     }
 })
 
@@ -25,7 +26,7 @@ router.get("/dogs", async (req, res, next) => {
         })
 
     } catch (err) {
-        next (err)
+        next(err)
     }
 })
 
@@ -35,13 +36,15 @@ router.get("/dogs/:id", async (req, res, next) => {
 
         const id = req.params.id
         const dogId = await Doggie.findById(id)
-
-        res.render("dog/show.ejs", {
-            dog: dogId
-        })
         
+        res.render("dog/show.ejs", {
+            dog: dogId,
+            user: req.session.user,
+            relativeAge: calculateAge(dogId.dob)
+        })
+
     } catch (err) {
-        next (err)
+        next(err)
     }
 })
 
@@ -52,13 +55,12 @@ router.delete("/dogs/:id", async (req, res, next) => {
         const dogId = req.params.id
         const user = req.session.user
         if (!user || user.user_type !== "charity") {
-            return res.status(401).send ({ message: "Only valid charity users can perform this" })
+            return res.status(401).send({ message: "Only valid charity users can perform this" })
         }
-        
+
         const dog = await Doggie.findById(dogId)
         if (dog.charity_number !== user.charity_number) {
             return res.status(403).send({ message: "This dog does not belong to your charity" })
-            
         }
 
         req.body.user = req.session.user
@@ -72,9 +74,9 @@ router.delete("/dogs/:id", async (req, res, next) => {
 })
 
 
-router.get("/new", async (req,res,next) => {
+router.get("/new", async (req, res, next) => {
     try {
-          
+
         res.render("charity/new.ejs", {
             dogBreeds: dogBreeds
         })
@@ -86,15 +88,15 @@ router.get("/new", async (req,res,next) => {
 
 router.post("/new", async (req, res, next) => {
     try {
-
+        console.log("form data submission", req.body)
         const user = req.session.user
         if (!user || user.user_type !== "charity") {
             return res.status(401).send({ message: "Only valid charity users can perform this" })
         }
-        
+
         req.body.charity_name = user.charity_name
         req.body.charity_number = user.charity_number
-
+        req.body.dob = new Date(req.body.dob)
         req.body.user = req.session.user
         await Doggie.create(req.body)
         res.redirect("/dogs")
@@ -126,12 +128,16 @@ router.put("/dogs/:id", async (req, res, next) => {
         const dogId = req.params.id
         const user = req.session.user
         if (!user || user.user_type !== "charity") {
-            return res.status(401).send ({ message: "Only valid charity users can perform this" })
+            return res.status(401).send({ message: "Only valid charity users can perform this" })
         }
-        
+
         const dog = await Doggie.findById(dogId)
         if (dog.charity_number !== user.charity_number) {
             return res.status(403).send({ message: "This dog does not belong to your charity" })
+        }
+
+        if (req.body.dob) {
+        req.body.dob = new Date(req.body.dob)
         }
 
         await Doggie.findByIdAndUpdate(dogId, req.body, { new: true })

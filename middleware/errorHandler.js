@@ -17,6 +17,6 @@ export default
         res.status(422).send({ errors: customErrMessage, message: "There are issues with your data, please check them properly" })
 
     } else {
-        res.send({ message: "Something went wrong, check the request and try again" })
+        res.send({ message: "Something went wrong, check the request and try again", error: err })
     }
 }

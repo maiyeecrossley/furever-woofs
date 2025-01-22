@@ -5,7 +5,7 @@
 
     <main>
     <p>Breed: <%= dog.breed.join(", ") %></p>
-    <p>Age: <%= dog.age %></p>
+    <p>Age: <%= relativeAge %></p>
     <p>Gender: <%= dog.gender %></p>
     <p>Location: <%= dog.location %></p>
     <p>Description: <%= dog.description %></p>
@@ -13,16 +13,19 @@
     <p>Can live with dogs? <%= dog.live_with_dogs ? "Yes ✅" : "No ❌" %></p>
     <p>Can live with children? <%= dog.live_with_children ? "Yes ✅" : "No ❌" %></p>
     <p>Charity: <%= dog.charity_name %></p>
+    <p>Chairty Number: <%= dog.charity_number %></p>
     <p>Reference: <%= dog.reference %></p>
 
     </main>
 
-    <p><a href="/dogs/update/<%= dog._id %>">Update <%= dog.name %>'s Details</a></p>
+    <% if (user && user.user_type === "charity") { %>
+      <p><a href="/dogs/update/<%= dog._id %>">Update <%= dog.name %>'s Details</a></p>
 
-    <form action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+      <form action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
         <button type="submit"><%= dog.name %> has found their furever sofa 🛋️ ❤️</button>
       </form>
 
+    <% } %>
 
 </body>
 </html>
