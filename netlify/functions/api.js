@@ -5,7 +5,7 @@ import session from "express-session"
 import dotenv from "dotenv"
 import path from "path"
 import { fileURLToPath } from "url"
-import MongoStore from "conect-mongo"
+import MongoStore from "connect-mongo"
 import serverless from "serverless-http"
 
 import authenticate from "../../middleware/auth-user.js"
