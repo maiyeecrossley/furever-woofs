@@ -6,9 +6,9 @@
         <ul>
             <% allDogs.forEach((dog)=> { %>
                 <li>
-                    <a href="/dogs/<%= dog._id %>">
-                        <%= dog.name %>
-                    </a>
+                    <h3><a href="/dogs/<%= dog._id %>">
+                        <%= dog.name %></a></h3>
+                        <img src="<%= dog.image %>" width="300px" alt="<%= dog.name %> the <%= dog.breed.join(", ") %>">
                 </li>
             <% }) %>
         </ul>

@@ -25,7 +25,8 @@ export default
     "live_with_dogs": true,
     "live_with_children": false,
     "charity_name": "Doggie",
-    "charity_number": "12345"
+    "charity_number": "12345",
+    "image": "https://i.imgur.com/OHzmo9D.jpeg"
   },
   {
     "name": "Buddy",
@@ -38,7 +39,8 @@ export default
     "live_with_dogs": true,
     "live_with_children": true,
     "charity_name": "Happy Tails Shelter",
-    "charity_number": "67890"
+    "charity_number": "67890",
+    "image": "https://i.imgur.com/s3RYVh1.jpeg"
   },
   {
     "name": "Daisy",
@@ -51,7 +53,8 @@ export default
     "live_with_dogs": true,
     "live_with_children": true,
     "charity_name": "Paws and Claws Rescue",
-    "charity_number": "11223"
+    "charity_number": "11223",
+    "image": "https://i.imgur.com/WxFeqTc.jpeg"
   },
   {
     "name": "Max",
@@ -64,12 +67,13 @@ export default
     "live_with_dogs": true,
     "live_with_children": false,
     "charity_name": "Safe Haven Dogs",
-    "charity_number": "33445"
+    "charity_number": "33445",
+    "image": "https://i.imgur.com/JuOwJTW.jpeg"
   },
   {
     "name": "Luna",
     "breed": "Border Collie",
-    "dob": "2020-01-12",
+    "dob": "2024-11-12",
     "gender": "Female",
     "location": "Edinburgh",
     "description": "An intelligent and energetic dog who loves learning new tricks.",
@@ -77,7 +81,8 @@ export default
     "live_with_dogs": true,
     "live_with_children": true,
     "charity_name": "Highland Rescue",
-    "charity_number": "55678"
+    "charity_number": "55678",
+    "image": "https://i.imgur.com/AXHNqpn.jpeg"
   },
   {
     "name": "Charlie",
@@ -90,6 +95,7 @@ export default
     "live_with_dogs": true,
     "live_with_children": true,
     "charity_name": "South Wales Rescue",
-    "charity_number": "77889"
+    "charity_number": "77889",
+    "image": "https://i.imgur.com/rY1vP68.jpeg"
   }
 ]
