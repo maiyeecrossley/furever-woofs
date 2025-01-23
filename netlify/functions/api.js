@@ -3,8 +3,6 @@ import mongoose from "mongoose"
 import methodOverride from "method-override"
 import session from "express-session"
 import dotenv from "dotenv"
-import path from "path"
-import { fileURLToPath } from "url"
 import MongoStore from "connect-mongo"
 import serverless from "serverless-http"
 
@@ -14,12 +12,11 @@ import dogController from "../../controllers/dog-controller.js"
 import userController from "../../controllers/user-controller.js"
 
 dotenv.config()
-
 mongoose.connect(process.env.MONGODB_URI)
 
 const app = express()
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = path.dirname(__filename)
 
 app.use(express.json())
 
