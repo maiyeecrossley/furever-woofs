@@ -44,40 +44,6 @@ app.use("/", userController)
 
 app.use(errorHandler)
 
-
-// const upload = multer({
-//     storage: multer.memoryStorage(),
-//     limits: { fileSize: 1 * 1024 * 1024 }, // 1MB limit
-// });
-
-// app.post("/dogs", upload.single("image"), async (req, res) => {
-//     try {
-//         const { name, breed } = req.body;
-        
-//         // Ensure required fields are provided
-//         if (!name || !breed || !req.file) {
-//             return res.status(400).send("Name, country, and image are required.");
-//         }
-        
-//         // Convert the image buffer to base64
-//         const base64Image = req.file.buffer.toString("base64");
-        
-//         // Create a new destination
-//         const newDog = new Doggie({
-//             name,
-//             dog,
-//             image: base64Image,
-//         });
-        
-//         // Save to MongoDB
-//         await newDog.save();
-        
-//         res.redirect("/");
-//     } catch (error) {
-//         res.status(500).send("Failed to add destination");
-//     }
-//   });
-
 app.listen(3000, () => {
     console.log("Server running on port 3000 ✅")
 })
