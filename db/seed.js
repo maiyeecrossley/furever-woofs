@@ -2,12 +2,13 @@ import mongoose from "mongoose"
 import doggos from "../data.js"
 import Doggie from "../models/dog-schema.js"
 import User from "../models/user-schema.js"
-import dogSchema from "../models/dog-schema.js"
+import dotenv from "dotenv"
 
 async function seed() {
+dotenv.config()
 
     console.log("connecting to database 🤖")
-    await mongoose.connect("mongodb://127.0.0.1:27017/doggo-db")
+    await mongoose.connect(process.env.MONGODB_URI)
     console.log("connection established 🤖")
 
     console.log('Clearing database... 🧹')

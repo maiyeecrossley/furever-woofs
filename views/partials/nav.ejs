@@ -2,8 +2,12 @@
     <a href="/">Home</a>
     <a href="/dogs">View all the dogs</a>
     <a href="/new">Add a new dog</a>
-    <a href="/register">Register</a>
-    <a href="/login">Login</a>
-    <a href="/logout">Logout</a>
-    Welcome <%= name %></p>
+
+    <% if (!isLoggedIn) { %>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+    <% } else { %>
+        <a href="/logout">Logout</a>
+        Welcome, <%= name %>
+    <% } %>
 </nav>

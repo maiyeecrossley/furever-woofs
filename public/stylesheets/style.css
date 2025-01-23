@@ -24,3 +24,21 @@ nav {
     justify-content: space-evenly;
     flex-direction: row;
 }
+
+a {
+    color:#6250ad;
+    text-decoration: none;
+    font-family: "Thasadith", serif;
+    display: flex;
+}
+
+a:hover {
+    color: #ff6868; 
+    text-decoration: underline;
+    font-family: "Thasadith", serif;
+}
+
+a:visited {
+    color: #6250ad;
+    font-family: "Thasadith", serif;
+}
