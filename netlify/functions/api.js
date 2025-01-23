@@ -13,9 +13,9 @@ import errorHandler from "../../middleware/errorHandler.js"
 import dogController from "../../controllers/dog-controller.js"
 import userController from "../../controllers/user-controller.js"
 
-mongoose.connect(process.env.MONGODB_URI)
-
 dotenv.config()
+
+mongoose.connect(process.env.MONGODB_URI)
 
 const app = express()
 const __filename = fileURLToPath(import.meta.url)
