@@ -4,8 +4,10 @@ import { generateReference } from "../middleware/reference-generator.js"
 const doggoSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        set: (value) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
     },
+    
     breed: {
         type: [String],
         required: true,
@@ -13,13 +15,16 @@ const doggoSchema = new mongoose.Schema({
             message: "You have selected more than 3 breeds. Please use 'Other cross-breed' option.",
             validator: (breeds) => breeds.length <= 3
         },
-        set: breeds => Array.isArray(breeds)
-            ? breeds.map(breed => breed.toLowerCase())
-            : [breeds.toLowerCase()]
+        set: (breeds) => {
+            const formatBreed = (breed) => 
+                breed.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')
+    
+            return Array.isArray(breeds) ? breeds.map(formatBreed) : [formatBreed(breeds)]
+        }
     },
     dob: {
         type: Date,
-        required: true
+        required: true,
     },
     gender: {
         type: String,
@@ -28,11 +33,14 @@ const doggoSchema = new mongoose.Schema({
     },
     location: {
         type: String,
-        required: true
+        required: true,
+        set: (input) =>
+            input.split(/[\s,]+/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(', ')
     },
     description: {
         type: String,
-        required: true
+        required: true,
+        set: (value) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
     },
     live_with_cats: {
         type: Boolean, 
@@ -48,7 +56,9 @@ const doggoSchema = new mongoose.Schema({
     },
     charity_name: {
         type: String,
-        required: true
+        required: true,
+        set: (input) =>
+            input.split(/[\s,]+/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(', ')
     }, 
     charity_number: {
         type: Number,
@@ -57,6 +67,10 @@ const doggoSchema = new mongoose.Schema({
     reference: {
         type: String,
         unique: true
+    },
+    image: {
+        type: String,
+        required: false
     },
     user: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true 

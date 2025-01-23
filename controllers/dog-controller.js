@@ -88,7 +88,7 @@ router.get("/new", async (req, res, next) => {
 
 router.post("/new", async (req, res, next) => {
     try {
-        console.log("form data submission", req.body)
+        
         const user = req.session.user
         if (!user || user.user_type !== "charity") {
             return res.status(401).send({ message: "Only valid charity users can perform this" })

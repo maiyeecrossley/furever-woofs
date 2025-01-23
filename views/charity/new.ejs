@@ -12,10 +12,11 @@
 
         <fieldset>
             <legend>Breed:</legend>
-            <% for (const breed in dogBreeds) { %>
-            <input type="checkbox" name="breed" id="breed_<%= breed %>" value="<%= dogBreeds[breed] %>">
-            <label for="breed_<%= breed %>"><%= dogBreeds[breed] %></label><br>
-            <% } %>
+            <% Object.entries(dogBreeds).forEach(([key, value]) => { %>
+                <% const formattedValue = value.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' '); %>
+                <input type="checkbox" name="breed" id="breed_<%= key %>" value="<%= formattedValue %>"> 
+                <label for="breed_<%= key %>"><%= formattedValue %></label><br>
+            <% }); %>
         </fieldset>
 
         <fieldset>

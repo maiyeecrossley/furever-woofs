@@ -1,17 +1,18 @@
 export default
 [
   {
-    "name": "Koda",
+    "name": "Henry",
     "breed": "Akita",
-    "dob": "2018-11-20",
+    "dob": "2015-10-09",
     "gender": "Male",
     "location": "Manchester",
     "description": "A gentle giant who loves long walks and quiet evenings at home.",
     "live_with_cats": false,
     "live_with_dogs": true,
     "live_with_children": true,
-    "charity_name": "Second Chance Akita Rescue",
-    "charity_number": "12345"
+    "charity_name": "Doggie",
+    "charity_number": "12345",
+    "image": "https://i.imgur.com/4tVgBOT.jpeg"
   },
   {
     "name": "Suki",
@@ -23,7 +24,7 @@ export default
     "live_with_cats": false,
     "live_with_dogs": true,
     "live_with_children": false,
-    "charity_name": "Second Chance Akita Rescue",
+    "charity_name": "Doggie",
     "charity_number": "12345"
   },
   {
