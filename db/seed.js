@@ -29,8 +29,6 @@ dotenv.config()
     
     doggos.forEach((dog) => {
         dog.user = user
-        dog.dogImage = dog.image
-        delete dog.image
     })
 
 
