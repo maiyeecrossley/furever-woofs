@@ -9,6 +9,8 @@ import userController from "./controllers/user-controller.js"
 import path from "path"
 import { fileURLToPath } from "url"
 import authenticate from "./middleware/auth-user.js"
+import multer from "multer"
+import MongoStore from "connect-mongo"
 
 dotenv.config()
 
@@ -26,10 +28,14 @@ app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI,
+        collectionName: "sessions",
+    }),
     cookie: {
         secure: false, 
         httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24 
+        maxAge: 1000 * 60 * 60 * 24
     }
 }))
 

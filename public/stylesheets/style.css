@@ -421,7 +421,7 @@ li {
     min-height: 100vh;
     text-align: center;
     padding: 20px;
-    background: #e8efe2; /* Matches your theme */
+    background: #e8efe2;
 }
 
 .error-page h1 {

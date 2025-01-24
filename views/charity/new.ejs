@@ -3,7 +3,7 @@
 
     <h1>Add a new dog</h1>
 
-    <form class="dog-form" action="/new" method="POST">
+    <form class="dog-form" action="/new" method="POST" enctype="multipart/form-data">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name"><br>
 
@@ -77,6 +77,9 @@
 
         <label for="description">Description:</label><br>
         <textarea name="description" rows="10" id="description"></textarea>
+
+        <label for="image">Upload Dog Image:</label>
+        <input type="file" id="image" name="image" accept="image/*"><br>
 
     <button type="submit">Submit</button>
     </form>
