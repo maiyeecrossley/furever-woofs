@@ -3,7 +3,7 @@
     
     <h1>Update <%= dog.name %>'s Details</h1>
     
-    <form action="/dogs/<%= dog._id %>?_method=PUT" method="POST">
+    <form class="dog-form" action="/dogs/<%= dog._id %>?_method=PUT" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" value="<%= dog.name %>"><br>
     
@@ -12,42 +12,64 @@
     
         <fieldset>
             <legend>Breed:</legend>
+            <div class="checkbox-group"></div>
             <% for (const [key, value] of Object.entries(dogBreeds)) { %>
                 <% const formattedValue = value.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') %>
+                <div class="checkbox-item">
                 <input type="checkbox" name="breed" id="breed_<%= key %>" value="<%= formattedValue %>" 
-                    <%= dog.breed.includes(formattedValue) ? "checked" : "" %>>
+                <%= dog.breed.includes(formattedValue) ? "checked" : "" %>>
                 <label for="breed_<%= key %>"><%= formattedValue %></label><br>
+                </div>
             <% } %>
+            </div>
         </fieldset>
     
         <fieldset>
             <legend>Gender:</legend>
-            <input type="radio" name="gender" id="male" value="Male" <%= dog.gender === "Male" ? "checked" : "" %>>
-            <label for="male">Male</label><br>
-            <input type="radio" name="gender" id="female" value="Female" <%= dog.gender === "Female" ? "checked" : "" %>>
-            <label for="female">Female</label>
+            <div class="radio-group">
+                <div class="radio-item">
+                <input type="radio" name="gender" id="male" value="Male" <%= dog.gender === "Male" ? "checked" : "" %>>
+                <label for="male">Male</label>
+            
+                <div class="radio-item">
+                <input type="radio" name="gender" id="female" value="Female" <%= dog.gender === "Female" ? "checked" : "" %>>
+                <label for="female">Female</label>
+                </div>
+            </div>
         </fieldset>
     
         <fieldset>
             <legend>Can live with:</legend>
-            <p>Cats: 
-                <input type="radio" name="live_with_cats" id="cats_yes" value="true" <%= dog.live_with_cats ? "checked" : "" %>>
-                <label for="cats_yes">Yes</label>
-                <input type="radio" name="live_with_cats" id="cats_no" value="false" <%= !dog.live_with_cats ? "checked" : "" %>>
-                <label for="cats_no">No</label>
-            </p>
-            <p>Dogs:
-                <input type="radio" name="live_with_dogs" id="dogs_yes" value="true" <%= dog.live_with_dogs ? "checked" : "" %>>
-                <label for="dogs_yes">Yes</label>
-                <input type="radio" name="live_with_dogs" id="dogs_no" value="false" <%= !dog.live_with_dogs ? "checked" : "" %>>
-                <label for="dogs_no">No</label>
-            </p>
-            <p>Children:
-                <input type="radio" name="live_with_children" id="children_yes" value="true" <%= dog.live_with_children ? "checked" : "" %>>
-                <label for="children_yes">Yes</label>
-                <input type="radio" name="live_with_children" id="children_no" value="false" <%= !dog.live_with_children ? "checked" : "" %>>
-                <label for="children_no">No</label>
-            </p>
+
+            <div class="radio-group">
+                <div class="radio-item">
+                    <label>Cats:</label> 
+                    <input type="radio" name="live_with_cats" id="cats_yes" value="true" <%= dog.live_with_cats ? "checked" : "" %>>
+                    <label for="cats_yes">Yes</label>
+                    <input type="radio" name="live_with_cats" id="cats_no" value="false" <%= !dog.live_with_cats ? "checked" : "" %>>
+                    <label for="cats_no">No</label>
+                </div>
+            </div>
+
+            <div class="radio-group">
+                <div class="radio-item">
+                    <label>Dogs:</label>
+                    <input type="radio" name="live_with_dogs" id="dogs_yes" value="true" <%= dog.live_with_dogs ? "checked" : "" %>>
+                    <label for="dogs_yes">Yes</label>
+                    <input type="radio" name="live_with_dogs" id="dogs_no" value="false" <%= !dog.live_with_dogs ? "checked" : "" %>>
+                    <label for="dogs_no">No</label>
+                </div>
+            </div>
+            
+            <div class="radio-group">
+                <div class="radio-item">
+                    <label>Children:</label>
+                    <input type="radio" name="live_with_children" id="children_yes" value="true" <%= dog.live_with_children ? "checked" : "" %>>
+                    <label for="children_yes">Yes</label>
+                    <input type="radio" name="live_with_children" id="children_no" value="false" <%= !dog.live_with_children ? "checked" : "" %>>
+                    <label for="children_no">No</label>
+                </div>
+            </div>
         </fieldset>
     
         <label for="location">Location:</label>
@@ -60,7 +82,7 @@
         <input type="text" name="charity_number" id="charity_number" value="<%= dog.charity_number %>"><br>
     
         <label for="description">Description:</label><br>
-        <textarea name="description" rows="20" cols="60" id="description"><%= dog.description %></textarea>
+        <textarea name="description" rows="10" id="description"><%= dog.description %></textarea>
     
         <button type="submit">Submit</button>
     </form>

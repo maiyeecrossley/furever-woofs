@@ -35,12 +35,12 @@ const doggoSchema = new mongoose.Schema({
         type: String,
         required: true,
         set: (input) =>
-            input.split(/[\s,]+/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(', ')
+            input.split(/[\s,]+/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(', '),
     },
     description: {
         type: String,
         required: true,
-        set: (value) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+        set: (value) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase(),
     },
     live_with_cats: {
         type: Boolean, 
@@ -57,8 +57,6 @@ const doggoSchema = new mongoose.Schema({
     charity_name: {
         type: String,
         required: true,
-        set: (input) =>
-            input.split(/[\s,]+/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(', ')
     }, 
     charity_number: {
         type: Number,

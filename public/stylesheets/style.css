@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Thasadith:wght@700&display=swap');
 
 * {
     box-sizing: border-box
@@ -9,36 +8,382 @@ body {
     background: #f3f1ff;
     font-family: "Thasadith", serif;
     font-weight: 700;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+nav {
+    padding: 8px 0;
+    font-family: "Sour Gummy", serif;
+    font-size: 20px;
+    color: #4e679c;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    border-bottom: 1px solid #dfdfe0;
 }
 
 h1 {
     font-family: "Sour Gummy", serif;
+    color: #555b68;
+    font-size: 50px;
+    text-align: center;
 
 }
 
-nav {
+h2 {
+    font-family: "Sour Gummy", serif;
+    color: #555b68;
+    font-size: 40px;
+    text-align: center;
+
+}
+
+h3 {
     font-family: "Thasadith", serif;
     font-weight: 700;
+    color: #555b68;
     font-size: 20px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
+    text-align: center;
 }
 
-a {
-    color:#6250ad;
-    text-decoration: none;
+h4 {
     font-family: "Thasadith", serif;
-    display: flex;
+    font-weight: 700;
+    color: #555b68;
+    font-size: 25px;
+    text-align: center;
+}
+
+
+a {
+    font-family: "Sour Gummy", serif;
+    color: #4e679c;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #ff6868; 
+    color: #ff6868;
     text-decoration: underline;
-    font-family: "Thasadith", serif;
+    font-family: "Sour Gummy", serif;
 }
 
 a:visited {
-    color: #6250ad;
+    color: #4e679c;
+    font-family: "Sour Gummy", serif;
+}
+
+.welcome {
+    font-family: "Sour Gummy", serif;
+    color: #555b68;
+    font-size: 70px;
+    text-align: center;
+}
+
+.welcome-message {
     font-family: "Thasadith", serif;
+    font-weight: 700;
+    color: #555b68;
+    font-size: 30px;
+    text-align: center;
+}
+
+.register {
+    font-family: "Sour Gummy", serif;
+    color: #555b68;
+    font-size: 25px;
+    text-align: center;
+}
+
+.dog-name {
+    font-family: "Sour Gummy", serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.show-name {
+    font-family: "Sour Gummy", serif;
+    display: flex;
+    justify-content: flex-start;
+    color: #555b68;
+}
+
+.show-image {
+    display: block;
+    border: 10px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.polaroid img {
+    border: 10px solid white;
+    display: block;
+    max-width: 100%;
+    max-height: 70%;
+    object-fit: contain;
+
+}
+
+.polaroid {
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #dfdfe0;
+    margin: 10px;
+    text-align: center;
+}
+
+.polaroid .caption {
+    margin-top: -20px;
+    font-family: "Thasadith", serif;
+    font-size: 15px;
+    color: #555b68;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.polaroid:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #dfdfe0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form label {
+    font-family: "Sour Gummy", serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #555b68;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Sour Gummy", serif;
+    font-size: 16px;
+    color: #555b68;
+    background: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form input:focus {
+    border-color: #4e679c;
+    outline: none;
+    box-shadow: 0 0 3px rgba(78, 103, 156, 0.6);
+}
+
+.form button {
+    width: 100%;
+    padding: 10px 15px;
+    font-family: "Sour Gummy", serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f3f1ff;
+    background: #4e679c;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.form button:hover {
+    background: #2b3e65;
+}
+
+.form button:active {
+    background: #2b3e65;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form .error {
+    font-size: 16px;
+    color: #ff6868;
+    margin-top: -8px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.form input[type="number"],
+.form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Sour Gummy", serif;
+    color: #555b68;
+    background: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}
+
+.form input[type="number"]:focus,
+.form input[type="date"]:focus {
+    border-color: #4e679c;
+    outline: none;
+    box-shadow: 0 0 3px rgba(78, 103, 156, 0.6);
+}
+
+
+.dog-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #dfdfe0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.dog-form fieldset {
+    border: 1px solid #dfdfe0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+
+.dog-form fieldset legend {
+    font-family: "Sour Gummy", serif;
+    font-weight: 700;
+    color: #555b68;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+.dog-form label {
+    font-family: "Sour Gummy", serif;
+    font-weight: 700;
+    color: #555b68;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+
+.dog-form input[type="text"],
+.dog-form input[type="date"],
+.dog-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Sour Gummy", serif;
+    font-size: 16px;
+    color: #555b68;
+    background: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+.dog-form input:focus,
+.dog-form textarea:focus {
+    border-color: #4e679c;
+    outline: none;
+    box-shadow: 0 0 3px rgba(78, 103, 156, 0.6);
+}
+
+
+.dog-form .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.dog-form .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+
+.dog-form .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dog-form .radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dog-form input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+.dog-form input[type="radio"] {
+    margin: 0;
+    vertical-align: middle;
+    transform: scale(1.2);
+}
+
+
+.dog-form button {
+    width: 100%;
+    padding: 15px;
+    font-family: "Sour Gummy", serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f3f1ff;
+    background: #4e679c;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+
+.dog-form button:hover {
+    background: #2b3e65;
+}
+
+.dog-form button:active {
+    background: #2b3e65;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }

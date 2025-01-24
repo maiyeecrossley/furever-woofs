@@ -1,10 +1,10 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-    <h1><%= dog.name %></h1>
+    <h1 class="show-name"><%= dog.name %></h1>
 
     <main>
-      <img src="<%= dog.image %>" width="300px" alt="<%= dog.name %> the <%= dog.breed.join(", ") %>">
+      <img class="show-image" src="<%= dog.image %>" width="300px" alt="<%= dog.name %> the <%= dog.breed.join(", ") %>">
       <p>Breed: <%= dog.breed.join(", ") %></p>
       <p>Age: <%= relativeAge %></p>
       <p>Gender: <%= dog.gender %></p>
