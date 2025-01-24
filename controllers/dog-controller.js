@@ -131,37 +131,6 @@ router.post("/new", upload.single("image"), async (req, res, next) => {
 })
 
 
-
-// router.post("/new", async (req, res, next) => {
-//     try {
-        
-//         const user = req.session.user
-//         if (!user || user.user_type !== "charity") {
-//             const error = new Error("Only valid charity users can perform this action")
-//             error.name = "UnauthorisedError"
-//             throw error
-//         }
-
-//         req.body.charity_name = user.charity_name
-//         req.body.charity_number = user.charity_number
-//         req.body.dob = new Date(req.body.dob)
-//         req.body.user = req.session.user
-
-//         const newDog = await Doggie.create(req.body)
-//         if (!newDog) {
-//             const error = new Error("Failed to add new dog. Please check your input")
-//             error.name = "ValidationError"
-//             throw error
-//         }
-
-//         res.redirect("/dogs")
-
-//     } catch (err) {
-//         next(err)
-//     }
-// })
-
-
 router.get("/dogs/update/:id", async (req, res, next) => {
     try {
 
