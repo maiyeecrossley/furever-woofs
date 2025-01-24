@@ -30,10 +30,12 @@ router.post("/register-form", async (req, res, next) => {
 
         console.log(req.body)
 
-        // const emailInDatabase = await User.findOne({ email: req.body.email })
-        // if (emailInDatabase) {
-        //     res.send("There is already an account with this email address")
-        // }
+        const emailInDatabase = await User.findOne({ email: req.body.email })
+        if (emailInDatabase) {
+            const error = new Error("There is already an account with this email address")
+            error.name = "ValidationError"
+            throw error
+        }
         
         let user = {
             first_name: req.body.first_name,
@@ -52,7 +54,7 @@ router.post("/register-form", async (req, res, next) => {
         }
 
         await User.create(user)
-        res.redirect("/")
+        res.redirect("/login")
 
     } catch (err) {
         next (err)

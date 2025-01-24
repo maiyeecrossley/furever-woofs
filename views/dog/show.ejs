@@ -4,27 +4,33 @@
     <h1 class="show-name"><%= dog.name %></h1>
 
     <main>
-      <img class="show-image" src="<%= dog.image %>" width="300px" alt="<%= dog.name %> the <%= dog.breed.join(", ") %>">
-      <p>Breed: <%= dog.breed.join(", ") %></p>
-      <p>Age: <%= relativeAge %></p>
-      <p>Gender: <%= dog.gender %></p>
-      <p>Location: <%= dog.location %></p>
-      <p>Description: <%= dog.description %></p>
-      <p>Can live with cats? <%= dog.live_with_cats ? "Yes ✅" : "No ❌" %></p>
-      <p>Can live with dogs? <%= dog.live_with_dogs ? "Yes ✅" : "No ❌" %></p>
-      <p>Can live with children? <%= dog.live_with_children ? "Yes ✅" : "No ❌" %></p>
-      <p>Charity: <%= dog.charity_name %></p>
-      <p>Reference: <%= dog.reference %></p>
+      <div class="dog-container">
+        <img class="show-image" src="<%= dog.image %>" width="300px" alt="<%= dog.name %> the <%= dog.breed.join(", ") %>">
+
+        <div class="dog-details">
+          <p><span class="label">Breed:</span> <%= dog.breed.join(", ") %></p>
+          <p><span class="label">Age:</span> <%= relativeAge %></p>
+          <p><span class="label">Gender:</span> <%= dog.gender %></p>
+          <p><span class="label">Location:</span> <%= dog.location %></p>
+          <p><span class="label">Description:</span> <%= dog.description %></p>
+          <p><span class="label">Can live with cats?</span> <%= dog.live_with_cats ? "Yes ✅" : "No ❌" %></p>
+          <p><span class="label">Can live with dogs?</span> <%= dog.live_with_dogs ? "Yes ✅" : "No ❌" %></p>
+          <p><span class="label">Can live with children?</span> <%= dog.live_with_children ? "Yes ✅" : "No ❌" %></p>
+          <p><span class="label">Charity Name:</span> <%= dog.charity_name %></p>
+          <p><span class="label">Reference:</span> <%= dog.reference %></p>
+        </div>
+          <% if (user && user.user_type === "charity") { %>
+           <p><a href="/dogs/update/<%= dog._id %>">Update <%= dog.name %>'s Details</a></p>
+    
+          <form class="delete" action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+            <button type="submit"><%= dog.name %> has found their furever sofa ❤️</button>
+          </form>
+    
+        <% } %>
+        </div>
     </main>
 
-    <% if (user && user.user_type === "charity") { %>
-      <p><a href="/dogs/update/<%= dog._id %>">Update <%= dog.name %>'s Details</a></p>
 
-      <form action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
-        <button type="submit"><%= dog.name %> has found their furever sofa 🛋️ ❤️</button>
-      </form>
-
-    <% } %>
 
 </body>
 </html>

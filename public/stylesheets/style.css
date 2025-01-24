@@ -14,7 +14,7 @@ nav {
     padding: 8px 0;
     font-family: "Sour Gummy", serif;
     font-size: 20px;
-    color: #4e679c;
+    color: #4f7777;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
@@ -23,7 +23,7 @@ nav {
 
 h1 {
     font-family: "Sour Gummy", serif;
-    color: #4e679c;
+    color: #4f7777;
     font-size: 50px;
     text-align: center;
 
@@ -31,7 +31,7 @@ h1 {
 
 h2 {
     font-family: "Sour Gummy", serif;
-    color: #4e679c;
+    color: #4f7777;
     font-size: 40px;
     text-align: center;
 
@@ -40,7 +40,7 @@ h2 {
 h3 {
     font-family: "Thasadith", serif;
     font-weight: 700;
-    color: #4e679c;
+    color: #4f7777;
     font-size: 20px;
     text-align: center;
 }
@@ -48,32 +48,45 @@ h3 {
 h4 {
     font-family: "Thasadith", serif;
     font-weight: 700;
-    color: #4e679c;
+    color: #4f7777;
     font-size: 25px;
     text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
 }
 
 
 a {
     font-family: "Sour Gummy", serif;
-    color: #4e679c;
+    color: #4f7777;
     text-decoration: none;
 }
 
 a:hover {
-    color: #4e679c;
+    color: #4f7777;
     text-decoration: underline;
     font-family: "Sour Gummy", serif;
 }
 
 a:visited {
-    color: #4e679c;
+    color: #4f7777;
     font-family: "Sour Gummy", serif;
 }
 
 .welcome {
     font-family: "Sour Gummy", serif;
-    color: #4e679c;
+    color: #4f7777;
     font-size: 70px;
     text-align: center;
 }
@@ -81,7 +94,7 @@ a:visited {
 .welcome-message {
     font-family: "Thasadith", serif;
     font-weight: 700;
-    color: #4e679c;
+    color: #4f7777;
     font-size: 30px;
     text-align: center;
 }
@@ -115,7 +128,7 @@ a:visited {
 
 .register {
     font-family: "Sour Gummy", serif;
-    color: #4e679c;
+    color: #4f7777;
     font-size: 25px;
     text-align: center;
 }
@@ -129,16 +142,48 @@ a:visited {
 .show-name {
     font-family: "Sour Gummy", serif;
     display: flex;
-    justify-content: flex-start;
-    color: #4e679c;
+    justify-content: center;
+    color: #4f7777;
+}
+
+.dog-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: #f8faf6;
+    border: 10px solid #c4d0c4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .show-image {
-    display: block;
+    width: 300px;
+    height: auto;
     border: 10px solid white;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
 }
+
+.dog-details {
+    flex: 1;
+    font-family: "Thasadith", serif;
+    font-size: 16px;
+    color: #4f7777;
+    line-height: 1.5;
+}
+
+.dog-details p {
+    margin: 10px 0;
+}
+
+.label {
+    font-family: "Sour Gummy", serif;
+}
+
 
 .polaroid img {
     border: 10px solid white;
@@ -168,26 +213,13 @@ a:visited {
     margin-top: -20px;
     font-family: "Thasadith", serif;
     font-size: 15px;
-    color: #4e679c;
+    color: #4f7777;
     word-wrap: break-word;
     text-align: center;
 }
 
 .polaroid:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-ul {
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0;
-}
-
-li {
-    margin: 0;
-    padding: 0;
 }
 
 .form {
@@ -208,39 +240,27 @@ li {
     font-family: "Sour Gummy", serif;
     font-weight: 700;
     font-size: 16px;
-    color: #4e679c;
+    color: #4f7777;
     margin-bottom: 8px;
     display: block;
 }
 
-.form input[type="text"],
-.form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: "Sour Gummy", serif;
-    font-size: 16px;
-    color: #4e679c;
-    background: #f9f9f9;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
 .form input:focus {
-    border-color: #4e679c;
+    border-color: #4f7777;
     outline: none;
     box-shadow: 0 0 3px rgba(78, 103, 156, 0.6);
 }
 
-.form button {
+.form button,
+.dog-form button,
+.delete button {
     width: 100%;
     padding: 10px 15px;
     font-family: "Sour Gummy", serif;
     font-size: 16px;
     font-weight: 700;
     color: white;
-    background: #4e679c;
+    background: #4f7777;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -248,12 +268,16 @@ li {
     transition: background 0.3s ease;
 }
 
-.form button:hover {
-    background: #2b3e65;
+.form button:hover,
+.delete button:hover,
+.dog-form button:hover {
+    background: #3e5e5e;
 }
 
-.form button:active {
-    background: #2b3e65;
+.form button:active,
+.delete button:active,
+.dog-form button:active {
+    background: #3e5e5e;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -273,7 +297,7 @@ li {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-family: "Sour Gummy", serif;
-    color: #4e679c;
+    color: #4f7777;
     background: #f9f9f9;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 16px;
@@ -281,11 +305,24 @@ li {
 
 .form input[type="number"]:focus,
 .form input[type="date"]:focus {
-    border-color: #4e679c;
+    border-color: #4f7777;
     outline: none;
     box-shadow: 0 0 3px rgba(78, 103, 156, 0.6);
 }
 
+.form input[type="text"],
+.form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Sour Gummy", serif;
+    font-size: 16px;
+    color: #4f7777;
+    background: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
 
 .dog-form {
     display: flex;
@@ -311,7 +348,7 @@ li {
 .dog-form fieldset legend {
     font-family: "Sour Gummy", serif;
     font-weight: 700;
-    color: #4e679c;
+    color: #4f7777;
     font-size: 18px;
     margin-bottom: 10px;
 }
@@ -320,7 +357,7 @@ li {
 .dog-form label {
     font-family: "Sour Gummy", serif;
     font-weight: 700;
-    color: #4e679c;
+    color: #4f7777;
     font-size: 16px;
     margin-bottom: 8px;
 }
@@ -336,15 +373,25 @@ li {
     border-radius: 4px;
     font-family: "Sour Gummy", serif;
     font-size: 16px;
-    color: #4e679c;
+    color: #4f7777;
     background: #f9f9f9;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dog-form input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+.dog-form input[type="radio"] {
+    margin: 0;
+    vertical-align: middle;
+    transform: scale(1.2);
 }
 
 
 .dog-form input:focus,
 .dog-form textarea:focus {
-    border-color: #4e679c;
+    border-color: #4f7777;
     outline: none;
     box-shadow: 0 0 3px rgba(78, 103, 156, 0.6);
 }
@@ -377,42 +424,6 @@ li {
     gap: 8px;
 }
 
-.dog-form input[type="checkbox"] {
-    transform: scale(1.2);
-}
-
-.dog-form input[type="radio"] {
-    margin: 0;
-    vertical-align: middle;
-    transform: scale(1.2);
-}
-
-
-.dog-form button {
-    width: 100%;
-    padding: 15px;
-    font-family: "Sour Gummy", serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-    background: #4e679c;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease;
-}
-
-
-.dog-form button:hover {
-    background: #2b3e65;
-}
-
-.dog-form button:active {
-    background: #2b3e65;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 .error-page {
     display: flex;
     flex-direction: column;
@@ -424,7 +435,7 @@ li {
     background: #e8efe2;
 }
 
-.error-page h1 {
+.error-page h2 {
     font-family: "Sour Gummy", serif;
     color: #ff6868;
     font-size: 50px;
@@ -434,14 +445,14 @@ li {
 .error-page .error-message {
     font-family: "Thasadith", serif;
     font-size: 20px;
-    color: #4e679c;
+    color: #4f7777;
     margin-bottom: 20px;
 }
 
 .error-page .error-details {
     font-family: "Thasadith", serif;
     font-size: 18px;
-    color: #4e679c;
+    color: #4f7777;
     margin-bottom: 20px;
     text-align: left;
 }
@@ -449,7 +460,7 @@ li {
 .error-page .error-home-link {
     font-family: "Sour Gummy", serif;
     color: white;
-    background: #4e679c;
+    background: #4f7777;
     padding: 10px 20px;
     border-radius: 4px;
     text-decoration: none;
@@ -457,5 +468,5 @@ li {
 }
 
 .error-page .error-home-link:hover {
-    background: #2b3e65;
+    background: #3e5e5e;
 }
