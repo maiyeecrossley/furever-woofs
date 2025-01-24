@@ -2,6 +2,7 @@ import express from "express"
 import Doggie from "../models/dog-schema.js"
 import dogBreeds from "../dog-breeds.js"
 import { calculateAge } from "../middleware/age-calculator.js"
+import { isCharityUser } from "../middleware/auth-user.js"
 
 const router = express.Router()
 
@@ -55,12 +56,16 @@ router.delete("/dogs/:id", async (req, res, next) => {
         const dogId = req.params.id
         const user = req.session.user
         if (!user || user.user_type !== "charity") {
-            return res.status(401).send({ message: "Only valid charity users can perform this" })
+            const error = new Error("Only valid charity users can perform this action")
+            error.name = "UnauthorisedError"
+            throw error
         }
 
         const dog = await Doggie.findById(dogId)
         if (dog.charity_number !== user.charity_number) {
-            return res.status(403).send({ message: "This dog does not belong to your charity" })
+            const error = new Error("This dog does not belong to your charity")
+            error.name = "ForbiddenError"
+            throw error
         }
 
         req.body.user = req.session.user
@@ -74,7 +79,7 @@ router.delete("/dogs/:id", async (req, res, next) => {
 })
 
 
-router.get("/new", async (req, res, next) => {
+router.get("/new", isCharityUser, async (req, res, next) => {
     try {
 
         res.render("charity/new.ejs", {
@@ -91,14 +96,23 @@ router.post("/new", async (req, res, next) => {
         
         const user = req.session.user
         if (!user || user.user_type !== "charity") {
-            return res.status(401).send({ message: "Only valid charity users can perform this" })
+            const error = new Error("Only valid charity users can perform this action")
+            error.name = "UnauthorisedError"
+            throw error
         }
 
         req.body.charity_name = user.charity_name
         req.body.charity_number = user.charity_number
         req.body.dob = new Date(req.body.dob)
         req.body.user = req.session.user
-        await Doggie.create(req.body)
+
+        const newDog = await Doggie.create(req.body)
+        if (!newDog) {
+            const error = new Error("Failed to add new dog. Please check your input")
+            error.name = "ValidationError"
+            throw error
+        }
+
         res.redirect("/dogs")
 
     } catch (err) {
@@ -111,6 +125,12 @@ router.get("/dogs/update/:id", async (req, res, next) => {
     try {
 
         const updateDog = await Doggie.findById(req.params.id).exec()
+        if (!updateDog) {
+            const error = new Error("Dog not found.")
+            error.name = "NotFoundError"
+            throw error
+        }
+
         res.render("charity/update.ejs", {
             dog: updateDog,
             dogBreeds: dogBreeds
@@ -127,20 +147,31 @@ router.put("/dogs/:id", async (req, res, next) => {
 
         const dogId = req.params.id
         const user = req.session.user
+
         if (!user || user.user_type !== "charity") {
-            return res.status(401).send({ message: "Only valid charity users can perform this" })
+            const error = new Error("Only valid charity users can perform this action")
+            error.name = "UnauthorisedError"
+            throw error
         }
 
         const dog = await Doggie.findById(dogId)
         if (dog.charity_number !== user.charity_number) {
-            return res.status(403).send({ message: "This dog does not belong to your charity" })
+            const error = new Error("This dog does not belong to your charity")
+            error.name = "ForbiddenError"
+            throw error
         }
 
         if (req.body.dob) {
         req.body.dob = new Date(req.body.dob)
         }
 
-        await Doggie.findByIdAndUpdate(dogId, req.body, { new: true })
+        const updatedDog = await Doggie.findByIdAndUpdate(dogId, req.body, { new: true })
+        if (!updatedDog) {
+            const error = new Error("Failed to update the dog. Please check your input.")
+            error.name = "ValidationError"
+            throw error
+        }
+
         res.redirect("/dogs")
 
     } catch (err) {

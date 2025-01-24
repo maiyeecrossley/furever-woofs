@@ -77,13 +77,17 @@ router.post("/login", async (req, res, next) => {
         
         const user = await User.findOne({ email: req.body.email })
         if (!user) {
-            return res.status(401).send({ message: "Log in failed. Please try again" })
+            const error = new Error("Log in failed. No account found with this email.")
+            error.name = "AuthenticationError"
+            throw error
         }
         if (!user.isPasswordValid(req.body.password)) {
-            return res.status(401).send({ message: "Log in failed. Please try again" })
+            const error = new Error("Log in failed. Incorrect password")
+            error.name = "AuthenticationError"
+            throw error
         }
         req.session.user = user
-        // res.status(200).send({ message: "Login successful" })
+        
         res.redirect("/dogs")
         
     } catch (err) {

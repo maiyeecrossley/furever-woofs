@@ -18,6 +18,8 @@ const __dirname = path.dirname(__filename)
 
 app.use(express.json())
 
+app.set("view engine", "ejs")
+
 app.use(express.static(path.join(__dirname, "public")))
 
 app.use(session({

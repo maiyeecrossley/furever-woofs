@@ -1,0 +1,18 @@
+<%- include('./partials/html-head') %>
+<%- include('./partials/nav') %>
+
+<div class="error-page">
+    <h1>Error: <%= title %></h1>
+    <p class="error-message"><%= message %></p>
+    <% if (details && Object.keys(details).length > 0) { %>
+        <ul class="error-details">
+            <% for (const [field, error] of Object.entries(details)) { %>
+                <li><%= field %>: <%= error %></li>
+            <% } %>
+        </ul>
+    <% } %>
+    <a href="/login" class="error-home-link">Log In</a><br>
+    <a href="/" class="error-home-link">Return to Home</a>
+    <% if (title === "Unauthorised" || title === "Forbidden") { %>
+    <% } %>
+</div>
