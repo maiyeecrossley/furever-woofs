@@ -76,9 +76,6 @@ After setting up the models, I tested the database connections and basic CRUD op
 With the models in place, I moved on to setting up the Express server to handle requests and responses. I structured the routes using RESTful conventions for clarity and maintainability.
 The user route handled user registration, login, and profile management and the dog route handled creating, viewing, editing, and deleting dog profiles.
 
-Throughout the build, I used Postman to test API routes and ensure that data was being sent and received correctly. This helped catch issues early, especially around form submissions and data validation.
-I also manually tested the user flow by registering users (both charity and adopters), logging in, creating dog profiles, and editing them to make sure everything worked as expected.
-
 For authentication, I implemented session-based authentication, which meant that once a user logged in, their session would persist until they've logged out.
 I also added custom middleware to differentiate between 'charity' and 'adopter' users, so only charities could add, or manage dog profiles:
 ``` JS
@@ -128,6 +125,8 @@ Met with error message:
 <img src="https://res.cloudinary.com/ddwlpgsjq/image/upload/v1741906594/Screenshot_2025-03-13_at_22.55.57_zcwg7j.png" width="400" alt="error message of 'forbidden, this dog does not belong to your charity">
 
 
+Throughout the build, I used Postman to test API routes and ensure that data was being sent and received correctly. This helped catch issues early, especially around form submissions and data validation.
+I also manually tested the user flow by registering users (both charity and adopters), logging in, creating dog profiles, and editing them to make sure everything worked as expected.
 
 
 ## Challenges
