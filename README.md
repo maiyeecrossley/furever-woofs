@@ -3,7 +3,7 @@
 <img src="https://res.cloudinary.com/ddwlpgsjq/image/upload/v1741815971/Screenshot_2025-03-12_at_20.45.57_ubhyvv.png" width="500" alt="screenshot of FurEver Woofs logo">
 
 
-[Deloyed link](https://furever-woofs.netlify.app/)
+[FurEver Woofs](https://furever-woofs.netlify.app/)
 
 
 ## Description
